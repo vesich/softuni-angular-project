@@ -4,7 +4,7 @@ import { switchMap, takeUntil } from 'rxjs/operators';
 
 export function emailValidator(control: AbstractControl): ValidationErrors | null {
   if (!control.value) { return null; }
-  return /^[a-zA-Z0-9\.-]{4,}@\.(bg|com)$/.test(control.value) ? null : {
+  return /^[a-zA-Z0-9\.-]{4,}@[a-zA-Z0-9]+\.[a-z]+$/.test(control.value) ? null : {
     invalidEmail: true
   };
 }

@@ -1,21 +1,14 @@
 <div class="welcome">
-  <h3>Welcome!</h3>
-  <p>SoftUni forum is a place, where you can post your questions, comment, and discuss problems, which
-    you have in your programming language or in your study in SoftUni.</p>
-  <div class="logged" *ngIf="!isLogged">
-    <ul>
-      <li>
-        <a routerLink="/login">
-          <i class="fas fa-sign-in-alt"></i>
-          Login
-        </a>
-      </li>
-      <li>
-        <a routerLink="/register">
-          <i class="fas fa-user-plus"></i>
-          Register
-        </a>
-      </li>
-    </ul>
+  <h3>Hi!</h3>
+  <p>
+    Welcome to my Car Catalogue. You can sign in and add your favourite car or
+    like someone else's car.
+  </p>
+  <div class="wrapping-div">
+    <img
+      routerLink="/catalogue"
+      src="../../../assets/bavar.png"
+      alt="starting image"
+    />
   </div>
 </div>

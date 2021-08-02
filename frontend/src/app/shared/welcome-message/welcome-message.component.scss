@@ -8,7 +8,7 @@
 }
 
 .welcome h3 {
-  background-color: #4ebced;
+  background-color: rgb(207, 211, 235);
   border-radius: 0.3em;
   width: 100%;
   padding: 0.3em 1em;
@@ -16,19 +16,21 @@
 
 .welcome p {
   padding: 1em;
+  margin: 10px auto;
   border-bottom: 1px solid #999;
   font-style: normal;
+  text-align: center;
 }
 
-.welcome a {
-  color: white;
-  text-decoration: none;
-  background-color: #4ebced;
-  border: none;
-  border-radius: 0.3em;
-  padding: 0.5em 5.2em;
-  margin: 1em;
-}
+// .welcome a {
+//   color: rgb(3, 3, 3);
+//   text-decoration: none;
+//   background-color: rgb(207, 211, 235);
+//   border: none;
+//   border-radius: 0.3em;
+//   padding: 0.5em 5.2em;
+//   margin: 1em;
+// }
 
 .welcome a:hover {
   cursor: pointer;
@@ -43,4 +45,20 @@
 
 .welcome li {
   list-style: none;
+}
+
+img {
+  margin: 10px 40px;
+  max-width: 50%;
+  justify-content: center;
+  position: relative;
+  padding-bottom : 30px;
+  cursor: pointer;
+}
+
+.wrapping-div {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  margin: 20px auto;
 }

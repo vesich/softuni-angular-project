@@ -7,7 +7,7 @@ import { ThemesComponent } from './themes/themes.component';
 
 const routes: Routes = [
   {
-    path: 'themes',
+    path: 'catalogue',
     children: [
       {
         path: '',
@@ -21,7 +21,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'add-theme',
+    path: 'add-car',
     component: NewThemeComponent,
     canActivate: [AuthActivate],
     data: {

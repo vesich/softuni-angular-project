@@ -7,7 +7,7 @@
       <p class="field field-icon">
         <label for="email">
           <span>
-            <fa-icon [icon]="icons.faEnvelope"></fa-icon>
+            Username
           </span>
         </label>
         <input #emailInput="ngModel" ngModel [appCustomValidator]="emailValidator" class="input-error" type="email"
@@ -26,7 +26,7 @@
       <p class="field field-icon">
         <label for="password">
           <span>
-            <fa-icon [icon]="icons.faLock"></fa-icon>
+            Password
           </span>
         </label>
         <input #passwordInput="ngModel" ngModel type="password" name="password" id="password" placeholder="******"
@@ -37,7 +37,7 @@
           Password is required!
         </p>
         <p *ngIf="passwordInput.errors?.minlength" class="error">
-          Password must be at least 4 characters!
+          Password must be at least 6 characters!
         </p>
       </ng-container>
 
