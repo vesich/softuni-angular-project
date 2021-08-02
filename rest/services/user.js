@@ -15,7 +15,7 @@ function createToken(user) {
 
 //REGISTER USER
 
-async function register(email, password, nickname) {
+async function register(email, password, username, age) {
 
     const existing = await User.findOne({ email });
 
@@ -27,14 +27,15 @@ async function register(email, password, nickname) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new User({ email, hashedPassword, nickname });
+    const user = new User({ email, hashedPassword, username, age });
 
     await user.save();
 
     return {
         _id: user._id,
         email: user.email,
-        nickname: user.nickname,
+        age: user.age,
+        username: user.username,
         accessToken: createToken(user)
     }
 }
@@ -64,7 +65,6 @@ async function login(email, password) {
         email: existing.email,
         accessToken: createToken(existing)
     }
-
 }
 
 module.exports = {
