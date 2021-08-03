@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
 
 @Component({
-  selector: 'softuni-profile',
+  selector: 'add-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })

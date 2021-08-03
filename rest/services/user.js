@@ -13,6 +13,49 @@ function createToken(user) {
     return token;
 }
 
+// PARSE COOKIE
+
+function parseToken(req, res) {
+    const token = req.cookies[process.env.COOKIE_NAME];
+    if (token) {
+        try {
+            const userData = jwt.verify(token, process.env.TOKEN_SECRET);
+            req.user = userData;
+            res.locals.user = userData;
+        } catch (error) {
+            res.clearCookie(process.env.COOKIE_NAME);
+            console.log(error);
+            res.status(401).json({ message: 'Please sign in' });
+
+            return false;
+        }
+    }
+    return true;
+}
+
+module.exports = () => (req, res, next) => {
+    if (parseToken(req, res)) {
+        req.service = {
+            async register(email, password, username, age) {
+                const token = await register(email, password, username, age);
+
+                res.cookie(process.env.COOKIE_NAME, token, { httpOnly: true });
+                return token;
+            },
+            async login(email, password) {
+                const token = await login(email, password);
+                res.cookie(process.env.COOKIE_NAME, token);
+
+                return token;
+            },
+            logout() {
+                res.clearCookie(process.env.COOKIE_NAME)
+            }
+        }
+        next();
+    }
+}
+
 //REGISTER USER
 
 async function register(email, password, username, age) {
@@ -67,7 +110,3 @@ async function login(email, password) {
     }
 }
 
-module.exports = {
-    register,
-    login
-}

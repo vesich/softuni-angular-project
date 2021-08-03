@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { body, validationResult } = require('express-validator')
 
 const { isGuest } = require('../middlewares/guards');
-const { login, register } = require('../services/user');
+
 
 //POST REQUESTS TO REGISTER
 
@@ -23,10 +23,10 @@ router.post('/register',
             if (errors.length > 0) {
                 throw new Error(Object.values(errors).map(e => e.msg).join('\n'))
             }
-            const userData = await register(req.body.email, req.body.password, req.body.username, req.body.age)
-            res.json(userData);
+            const userData = await req.service.register(req.body.email, req.body.password, req.body.username, req.body.age)
+            res.status(200).json(userData);
         } catch (error) {
-            res.status(error.status || 400).json({ message: error.message })
+            res.status(error.status || 400).json({ messssage: error.message })
         }
 
     })
@@ -37,8 +37,8 @@ router.post('/login', isGuest(), async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const userData = await login(email, password);
-        res.json(userData);
+        const userData = await req.service.login(email, password);
+        res.status(200).json(userData);
     } catch (error) {
         res.status(error.status || 400).json({ message: error.message })
     }
@@ -47,6 +47,7 @@ router.post('/login', isGuest(), async (req, res) => {
 //GET LOGOUT
 
 router.get('/logout', (req, res) => {
+    req.service.logout();
     res.status(204).end();
 });
 

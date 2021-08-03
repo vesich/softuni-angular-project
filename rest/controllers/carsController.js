@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 
 // CREATE A CAR
 
-router.post('/create', isAuth(), async (req, res) => {
+router.post('/create', async (req, res) => {
     const data = {
         make: req.body.make,
         model: req.body.model,
