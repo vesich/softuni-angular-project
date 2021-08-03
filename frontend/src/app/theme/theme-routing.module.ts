@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthActivate } from '../core/guards/auth.activate';
-import { NewThemeComponent } from './new-theme/new-theme.component';
+import { NewCarComponent } from './new-car/new-car.component';
 import { ThemeComponent } from './theme/theme.component';
 import { ThemesComponent } from './themes/themes.component';
 
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'add-car',
-    component: NewThemeComponent,
+    component: NewCarComponent,
     canActivate: [AuthActivate],
     data: {
       authenticationRequired: true,

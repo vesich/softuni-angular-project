@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="new-theme-border">
+    <div class="header-background">
+      <span>Add a car</span>
+    </div>
+    <form #form="ngForm" (ngSubmit)="createCar(form)">
+      <div class="new-theme-title">
+        <label for="make">Make </label>
+        <input
+          type="text"
+          name="make"
+          id="make"
+          ngModel
+          required
+          minlength="3"
+        />
+        <!-- <p class="error">
+          Theme name is required.
+        </p>
+        <p class="error">
+          Theme name must be at least 5 characters long.
+        </p> -->
+      </div>
+
+      <div>
+        <label for="model">Model </label>
+        <input
+          type="text"
+          name="model"
+          id="model"
+          ngModel
+          required
+          minlength="3"
+        />
+        <!-- <p class="error">
+          Theme name is required.
+        </p>
+        <p class="error">
+          Theme name must be at least 5 characters long.
+        </p> -->
+      </div>
+
+      <div>
+        <label for="year">Year </label>
+        <input
+          type="text"
+          name="year"
+          id="year"
+          ngModel
+          required
+          minlength="3"
+        />
+        <!-- <p class="error">
+          Theme name is required.
+        </p>
+        <p class="error">
+          Theme name must be at least 5 characters long.
+        </p> -->
+      </div>
+      <!-- <div>
+        <label for="postText">Post <span class="red">*</span></label>
+        <textarea
+          type="text"
+          name="postText"
+          id="postText"
+          rows="8"
+          class="height"
+          ngModel
+          required
+          minlength="10"
+        ></textarea>
+        <p class="error">The field with your post is required.</p>
+        <p class="error">Post must be at least 10 characters long.</p>
+      </div> -->
+
+      <div>
+        <label for="year">ImageURL </label>
+        <input
+          type="text"
+          name="imageUrl"
+          id="imageUrl"
+          ngModel
+          required
+          minlength="3"
+        />
+        <!-- <p class="error">
+          Theme name is required.
+        </p>
+        <p class="error">
+          Theme name must be at least 5 characters long.
+        </p> -->
+      </div>
+
+      <div>
+        <label for="year">Description </label>
+        <input
+          type="text"
+          name="description"
+          id="description"
+          ngModel
+          required
+          minlength="3"
+        />
+        <!-- <p class="error">
+          Theme name is required.
+        </p>
+        <p class="error">
+          Theme name must be at least 5 characters long.
+        </p> -->
+      </div>
+      <div class="new-theme-buttons">
+        <button type="button" routerLink="/catalogue" class="cancel">
+          Cancel
+        </button>
+        <button class="public">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

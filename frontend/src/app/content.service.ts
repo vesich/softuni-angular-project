@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ICar2, IPost, ITheme } from './shared/interfaces';
+import { ICar, ICar2, IPost, ITheme } from './shared/interfaces';
 
 import { environment } from '../environments/environment';
 const API_URL = environment.apiURL;
@@ -27,7 +27,7 @@ export class ContentService {
     return this.http.get<IPost[]>(`${API_URL}/posts${query}`, { withCredentials: true });
   }
 
-  saveTheme(data: any) {
-    return this.http.post<ITheme>(`${API_URL}/themes`, data, { withCredentials: true });
+  createCar(data: any) {
+    return this.http.post<ICar>(`${API_URL}/cars/create`, data, { withCredentials: true });
   }
 }

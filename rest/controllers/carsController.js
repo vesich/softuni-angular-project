@@ -1,3 +1,5 @@
+const { isAuth } = require('../middlewares/guards');
+
 const router = require('Express').Router();
 
 let cars =
@@ -24,9 +26,31 @@ let cars =
         },
     ]
 
+// GET ALL CARS
 
 router.get('/', async (req, res) => {
     res.json(cars)
+})
+
+// CREATE A CAR
+
+router.post('/create', isAuth(), async (req, res) => {
+    const data = {
+        make: req.body.make,
+        model: req.body.model,
+        year: Number(req.body.year),
+        carImage: req.body.carImage,
+        description: req.body.description,
+        owner: req.user._id
+    }
+    try {
+        const result = await req.storage.createCar(data);
+        res.status(201).json(result);
+    } catch (error) {
+        res.status(error.status || 409).json({ message: error.message })
+    }
+
+
 })
 
 module.exports = router;

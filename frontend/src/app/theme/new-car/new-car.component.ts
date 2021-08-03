@@ -4,22 +4,21 @@ import { Router } from '@angular/router';
 import { ContentService } from 'src/app/content.service';
 
 @Component({
-  selector: 'softuni-new-theme',
-  templateUrl: './new-theme.component.html',
-  styleUrls: ['./new-theme.component.scss']
+  templateUrl: './new-car.component.html',
+  styleUrls: ['./new-car.component.scss']
 })
-export class NewThemeComponent {
+export class NewCarComponent {
 
   constructor(
     private contentService: ContentService,
     private router: Router
   ) { }
 
-  createTheme(form: NgForm): void {
+  createCar(form: NgForm): void {
     if (form.invalid) { return; }
-    this.contentService.saveTheme(form.value).subscribe({
+    this.contentService.createCar(form.value).subscribe({
       next: () => {
-        this.router.navigate(['/themes']);
+        this.router.navigate(['/catalogue']);
       },
       error: (err) => {
         console.log(err);
